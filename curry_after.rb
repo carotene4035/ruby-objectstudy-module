@@ -5,14 +5,14 @@ class Curry
     @ninjin   = args[:ninjin_type] || 'きんとき'
     @tamanegi = args[:tamanegi_type] || 'わから'
 
-    post_initialise(args)
+    post_initialize(args) # 親が子のmethodを呼び出す
   end
 
-  def post_initialise(args={})
+  def post_initialize(args={})
   end
 
   def taste
-    'おいしい ' + add_taste
+    'おいしい ' + add_taste # 親が子のmethodを呼び出す
   end
 
   def add_taste
@@ -24,7 +24,7 @@ end
 
 class SweetCurry < Curry
 
-  def post_initialise(args={})
+  def post_initialize(args={})
     @choco = args[:chocolate] || 'meiji'
   end
 
@@ -36,7 +36,7 @@ end
 
 
 class HotCurry < Curry
-  def post_initialise(args={})
+  def post_initialize(args={})
     @source = args[:death_source] || 'death source'
   end
 
